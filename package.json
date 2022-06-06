@@ -36,7 +36,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "npm run lint",
+      "eslint --ext ts,tsx . --fix --cache",
       "npm run format:fix"
     ]
   }
