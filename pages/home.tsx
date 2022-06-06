@@ -1,9 +1,12 @@
 import React from 'react'
-
-let Hello = <button>Hello</button>
+import styles from '../styles/demo.module.scss'
 
 function Home() {
-  return <div>{Hello}</div>
+  return (
+    <div className={styles.div}>
+      <span>hello</span>
+    </div>
+  )
 }
 
 export default Home

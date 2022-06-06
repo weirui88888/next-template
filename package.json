@@ -9,13 +9,14 @@
     "lint": "next lint --fix --cache --dir pages --dir utils --ext js,jsx,ts,tsx",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lintcss": "stylelint **/*.{css,scss} --fix --custom-syntax postcss-scss"
   },
   "dependencies": {
     "next": "12.1.6",
-    "prettier": "^2.6.2",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "ress": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.40",
@@ -27,6 +28,14 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.0",
     "mrm": "^4.0.0",
+    "postcss": "^8.4.14",
+    "postcss-scss": "^4.0.4",
+    "prettier": "^2.6.2",
+    "sass": "^1.52.2",
+    "stylelint": "^14.8.5",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-order": "^5.0.0",
     "typescript": "4.7.3"
   },
   "husky": {
@@ -38,6 +47,9 @@
     "*.{ts,tsx}": [
       "eslint --ext ts,tsx . --fix --cache",
       "npm run format:fix"
+    ],
+    "*.{css,scss}": [
+      "npm run lintcss"
     ]
   }
 }
