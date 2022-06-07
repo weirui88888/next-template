@@ -1,7 +1,15 @@
 @import 'ress';
 
-.btn {
-  font-size: 30px;
+html,
+body {
+  height: 100vh;
+}
+
+.app {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='32' height='32' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Cpath d='M-4 20h8v7h-8zM36 20h8v7h-8z' fill='%23868e96'/%3E%3Cpath d='M18 20h4v7h-4zM58 20h4v7h-4z' fill='%23ffffff'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
 }
 
 ul,

@@ -1,0 +1,42 @@
+$bio-color: #0a6298;
+$name-color: #056ce2;
+$created-color: #078396;
+
+@font-face {
+  font-family: Got;
+  src: url('https://m0-file2.bybutter.com/uploaded/toaster/3ca0a128888b4795b7e935845c9d28e8.otf');
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+
+  .avatar {
+    margin: 30px auto;
+    border-radius: 50%;
+  }
+
+  .name {
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: center;
+    color: $name-color;
+  }
+
+  .bio {
+    padding: 10px 0;
+    font-size: 13px;
+    text-align: center;
+    color: $bio-color;
+  }
+
+  .created {
+    padding: 10px 0;
+    font-size: 14px;
+    font-family: Got, sans-serif;
+    color: $created-color;
+  }
+}
