@@ -14,6 +14,7 @@
     "lint:css": "stylelint **/*.{css,scss} --fix --custom-syntax postcss-scss"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "classnames": "^2.3.1",
     "next": "12.1.6",
     "react": "18.1.0",
@@ -31,6 +32,9 @@
     "lint-staged": "^13.0.0",
     "mrm": "^4.0.0",
     "postcss": "^8.4.14",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^7.7.1",
+    "postcss-pxtorem": "^6.0.0",
     "postcss-scss": "^4.0.4",
     "prettier": "^2.6.2",
     "sass": "^1.52.2",
@@ -53,5 +57,10 @@
     "*.{css,scss}": [
       "npm run lint:css"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead"
+  ]
 }

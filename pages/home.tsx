@@ -1,21 +1,47 @@
-import React from 'react'
-import styles from '../styles/demo.module.scss'
-import cn from 'classnames'
+import { InferGetStaticPropsType } from 'next'
+import ButterHead from '../components/Head'
+import styles from '../styles/home.module.scss'
+type Post = {
+  author: string
+  book: string
+}
 
-function Home() {
+export const getStaticProps = async () => {
+  const posts: Post[] = [
+    {
+      author: 'jack',
+      book: 'javascript高级程序设计'
+    },
+    {
+      author: 'ruby',
+      book: 'node实操记录'
+    }
+  ]
+
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className={styles.div}>
-      <span className={styles.span}>hello</span>
-      <p
-        className={cn({
-          [styles['p-red']]: true,
-          btn: true
-        })}
-      >
-        你好
-      </p>
-    </div>
+    <>
+      <ButterHead title={'学习next-js'} themeColor="#fff000" />
+      <div>
+        <ul className={styles['book-container']}>
+          {posts.map(post => {
+            return (
+              <li key={post.author} className={styles['book-list']}>
+                author:{post.author},book:{post.book}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </>
   )
 }
 
-export default Home
+export default Blog

@@ -3,3 +3,9 @@
 .btn {
   font-size: 30px;
 }
+
+ul,
+ol,
+li {
+  list-style: none;
+}
