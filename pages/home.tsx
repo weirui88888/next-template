@@ -9,11 +9,11 @@ type Post = {
 export const getStaticProps = async () => {
   const posts: Post[] = [
     {
-      author: 'jack',
+      author: '123',
       book: 'javascript高级程序设计'
     },
     {
-      author: 'ruby',
+      author: 'ru2342by',
       book: 'node实操记录'
     }
   ]
