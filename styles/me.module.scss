@@ -15,8 +15,10 @@ $created-color: #078396;
   flex-direction: column;
 
   .avatar {
-    margin: 30px auto;
+    margin-bottom: 10px;
     border-radius: 50%;
+    width: 100px;
+    height: 100px;
   }
 
   .name {

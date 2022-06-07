@@ -1,6 +1,5 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
-import Image from 'next/image'
 import Head from '../components/Head'
 import request from '../utils/request'
 import styles from '../styles/me.module.scss'
@@ -12,12 +11,10 @@ const Me = ({ user }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <>
       <Head title={user.name} />
       <div className={cn('app', styles.main)}>
-        <Image
-          className={styles.avatar}
+        <img
           src={user.avatar.preview.url}
-          width="100"
-          height="100"
           alt="user-avatar"
+          className={styles.avatar}
         />
         <p className={styles.name}>{user.name}</p>
         <p className={styles.bio}>{user.bio}</p>
