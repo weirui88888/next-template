@@ -1,12 +1,24 @@
 import React from 'react'
-import { InferGetStaticPropsType } from 'next'
-import Head from '../components/Head'
-import request from '../utils/request'
-import styles from '../styles/me.module.scss'
+// import { InferGetStaticPropsType, GetStaticProps } from 'next'
+import Head from '../../components/Head'
+import request from '../../utils/request'
+import styles from '../../styles/me.module.scss'
 import cn from 'classnames'
 import dayjs from 'dayjs'
 
-const Me = ({ user }: InferGetStaticPropsType<typeof getStaticProps>) => {
+type User = {
+  name: string
+  memberships: Record<string, any>[]
+  icons: Record<string, any>[]
+  favoritesCount: number
+  followingCount: number
+  artworksCount: number
+  createdAt: number
+  bio: string
+  avatar: Record<string, any>
+}
+
+const User = ({ user }: { user: any }) => {
   return (
     <>
       <Head title={user.name} />
@@ -26,21 +38,21 @@ const Me = ({ user }: InferGetStaticPropsType<typeof getStaticProps>) => {
   )
 }
 
-type User = {
-  name: string
-  memberships: Record<string, any>[]
-  icons: Record<string, any>[]
-  favoritesCount: number
-  followingCount: number
-  artworksCount: number
-  createdAt: number
-  bio: string
-  avatar: Record<string, any>
+export async function getStaticPaths() {
+  const tokens = [
+    '6d159952bbd824e19354ddeabcffe94d',
+    'e40e6a3e523be7c725d515ce0ade7347',
+    '39357910365e61c38ec5f9b9590caa73'
+  ]
+  const paths = tokens.map(token => ({
+    params: { user: token }
+  }))
+  return { paths, fallback: 'blocking' }
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }: { params: any }) {
   const res = await request.get('/users/me', {
-    headers: { authorization: `Butter e40e6a3e523be7c725d515ce0ade7347` }
+    headers: { authorization: `Butter ${params.user}` }
   })
   const {
     name,
@@ -71,4 +83,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Me
+export default User
