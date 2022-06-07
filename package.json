@@ -6,11 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix --cache --dir pages --dir utils --ext js,jsx,ts,tsx",
+    "nextlint": "next lint --no-cache --fix --dir .",
+    "lint": "eslint . --fix --no-cache --ext ts,tsx",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky install",
-    "lintcss": "stylelint **/*.{css,scss} --fix --custom-syntax postcss-scss"
+    "lint:css": "stylelint **/*.{css,scss} --fix --custom-syntax postcss-scss"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -46,11 +47,11 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --ext ts,tsx . --fix --cache",
+      "npm run lint",
       "npm run format:fix"
     ],
     "*.{css,scss}": [
-      "npm run lintcss"
+      "npm run lint:css"
     ]
   }
 }

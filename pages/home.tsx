@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/demo.module.scss'
 import cn from 'classnames'
+
 function Home() {
   return (
     <div className={styles.div}>
