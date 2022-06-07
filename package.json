@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "build:export": "next build && next export",
     "nextlint": "next lint --no-cache --fix --dir .",
     "lint": "eslint . --fix --no-cache --ext ts,tsx",
     "format": "prettier --check --ignore-path .gitignore .",
