@@ -25,10 +25,12 @@ export const getStaticProps = async () => {
   }
 }
 
-function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <ButterHead title={'学习next-js'} themeColor="#fff000" />
+      <ButterHead title={'学习next-js'} themeColor="#fff000">
+        <meta name="description" content="支持传入自定义Meta" />
+      </ButterHead>
       <div>
         <ul className={styles['book-container']}>
           {posts.map(post => {
@@ -44,4 +46,4 @@ function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   )
 }
 
-export default Blog
+export default Home
